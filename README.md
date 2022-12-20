@@ -1,0 +1,2 @@
+Acoteq
+L’objectif principale du projet consiste à développer une plateforme d'appel d'offres en ligne dans le domaine de l'isolation thermique dans le but de mettre en relation les clients et fournisseurs. Cette plateforme sera accessible à tous les professionnels travaillant dans ce domaine leur permettant d'explorer plus d'opportunités de marché.

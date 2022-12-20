@@ -1,0 +1,41 @@
+ // GOOGLE DRIVE API pour enregistrer le fichier uploadé dans Google Drive 
+            // require_once 'google-api-php-client/src/Google_Client.php';
+            // require_once 'google-api-php-client/src/contrib/Google_DriveService.php';
+            // // this is google client library and you got to include it in order to use it.
+            
+            // $client = new Google_Client();
+            
+            // // Get your credentials from the APIs Console
+            // // add your client id and client secret(you got it when you created your account)
+            // $client->setClientId('502716320845-kcro1rqgqd346olb2ak1794rf9v3ge7a.apps.googleusercontent.com');
+            // $client->setClientSecret('6oNP9d3FxjbklN3WRQNuB6g1');
+            
+            // //This is standard Uri for installed applications,may change in web applications.
+            // $client->setRedirectUri('urn:ietf:wg:oauth:2.0:oob');
+            
+            // $client->setScopes(array('https://www.googleapis.com/auth/drive'));
+            
+            // $service = new Google_DriveService($client);
+
+            // $authUrl = $client->createAuthUrl();
+            // //Request authorization
+            // print "Please visit:\n$authUrl\n\n";
+            // print "Please enter the auth code:\n";
+            // $authCode = trim(fgets(STDIN));
+            // // Exchange authorization code for access token
+            // $accessToken = $client->authenticate($authCode);
+            // $client->setAccessToken($accessToken);
+            // //Insert a file
+            // $file = new Google_DriveFile();
+            // $file->setTitle('My document');
+            // $file->setDescription('A test document');
+            // $file->setMimeType('text/plain');
+            
+            // $data = file_get_contents('document.txt');
+            
+            // $createdFile = $service->files->insert($file, array(
+            //     'data' => $data,
+            //     'mimeType' => 'text/plain',
+            //     ));
+            
+            // print_r($createdFile);
