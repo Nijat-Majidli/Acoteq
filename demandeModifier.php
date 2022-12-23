@@ -5,16 +5,16 @@
     fichier PHP dans lequel on utilisera la variable superglobale $_SESSION et avant tout envoi de requêtes HTTP, c'est-à-dire 
     avant tout code HTML (donc avant la balise <!DOCTYPE> ).  */  
 
-    if (!isset($_SESSION['email']) && !isset($_SESSION['user_siren']) && !isset($_SESSION['role'])=="client")
+    if (!isset($_SESSION['email']) && !isset($_SESSION['user_siren']) && !isset($_SESSION['role']))
     {
         echo "<h4> Cette page nécessite une identification </h4>";
         header("refresh:2; url=connexion.php");  // refresh:2 signifie que après 2 secondes l'utilisateur sera redirigé sur la page connexion.php
         exit;
     }
 
-    if (file_exists("header_client.php"))
+    if (file_exists("header.php"))
     {
-        include("header_client.php");
+        include("header.php");
     }
     else
     {

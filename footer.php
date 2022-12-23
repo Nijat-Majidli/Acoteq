@@ -20,6 +20,7 @@
     
         <!-- fichier Javascript RegExp -->
         <script src="javascript/RegExp1.js"> </script>
+        <script src="javascript/RegExp2.js"> </script>
     
         <!-- fichier Javascript pour icon Eye (à côté du champ mot de passe) dans la page "connexion.php" -->
         <script src="javascript/ShowPassword.js"> </script>

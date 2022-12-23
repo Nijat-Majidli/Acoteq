@@ -5,50 +5,23 @@
     fichier PHP dans lequel on utilisera la variable superglobale $_SESSION et avant tout envoi de requêtes HTTP, c'est-à-dire 
     avant tout code HTML (donc avant la balise <!DOCTYPE> ).  */  
 
-    if (!isset($_SESSION['email']) && !isset($_SESSION['role'])=="fournisseur")
+    if (!isset($_SESSION['email']) && !isset($_SESSION['role']))
     {
         echo "<h4> Cette page nécessite une identification </h4>";
         header("refresh:2; url=connexion.php");     // refresh:2 signifie que après 2 secondes l'utilisateur sera redirigé sur la page connexion.php
         exit;
     }
-?>
 
-
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <!-- Responsive design -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title> Réponse à modifier </title>
-
-        <!-- Bootstrap CDN link -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     
-        <!-- Fichier CSS -->
-        <link rel="stylesheet" href="css/style.css">
-
-        <!-- JQuery Google CDN: -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-
-
-
-    <body>
-        <!-- PAGE HEAD -->        
-        <?php
-            if (file_exists("header_fournisseur.php"))
-            {
-                include("header_fournisseur.php");
-            }
-            else
-            {
-                echo "le fichier n'existe pas";
-            }
-        ?>
+    if (file_exists("header.php"))
+    {
+        include("header.php");
+    }
+    else
+    {
+        echo "le fichier n'existe pas";
+    }
+?>
 
         <!-- PAGE CONTENT -->
         <div class="container-fluid p-4 mb-3 mt-3 col-7 bg-light text-dark">

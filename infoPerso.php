@@ -11,28 +11,14 @@
         header("refresh:2; url=connexion.php");  // refresh:2 signifie que après 2 secondes l'utilisateur sera redirigé sur la page connexion.php
         exit;
     }
-
-    if($_SESSION['role']=='client')
+   
+    if (file_exists("header.php"))
     {
-        if (file_exists("header_client.php"))
-        {
-            include("header_client.php");
-        }
-        else
-        {
-            echo "le fichier n'existe pas";
-        }
+        include("header.php");
     }
-    elseif($_SESSION['role']=='fournisseur')
+    else
     {
-        if (file_exists("header_fournisseur.php"))
-        {
-            include("header_fournisseur.php");
-        }
-        else
-        {
-            echo "le fichier n'existe pas";
-        }
+        echo "le fichier n'existe pas";
     }
 ?>
 

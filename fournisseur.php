@@ -5,7 +5,7 @@
     avant tout code HTML (donc avant la balise <!DOCTYPE> ).   */
     session_start();
 
-    if (!isset($_SESSION['email']) && !isset($_SESSION['role'])=="fournisseur")
+    if (!isset($_SESSION['email']) && !isset($_SESSION['role']))
     {
         echo "<h4> Cette page nécessite une identification </h4>";
         header("refresh:2; url=connexion.php");  // refresh:2 signifie que après 2 secondes l'utilisateur sera redirigé sur la page connexion.php
@@ -28,9 +28,9 @@
     }
 
 
-    if (file_exists("header_fournisseur.php"))
+    if (file_exists("header.php"))
     {
-        include("header_fournisseur.php");
+        include("header.php");
     }
     else
     {

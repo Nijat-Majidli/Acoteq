@@ -48,28 +48,16 @@
     }
    
 
-    if($_SESSION['role']=='client')
+   
+    if (file_exists("header.php"))
     {
-        if (file_exists("header_client.php"))
-        {
-            include("header_client.php");
-        }
-        else
-        {
-            echo "le fichier n'existe pas";
-        }
+        include("header.php");
     }
-    elseif($_SESSION['role']=='fournisseur')
+    else
     {
-        if (file_exists("header_fournisseur.php"))
-        {
-            include("header_fournisseur.php");
-        }
-        else
-        {
-            echo "le fichier n'existe pas";
-        }
+        echo "le fichier n'existe pas";
     }
+    
         
     // PAGE CONTENT 
     // Connéxion à la base de données 
