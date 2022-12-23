@@ -28,43 +28,16 @@
         setcookie('password', $_SESSION['mdp'], time() + 365*24*3600, null, null, false, true);
     }
     
+
+    if (file_exists("header_client.php"))
+    {
+        include("header_client.php");
+    }
+    else
+    {
+        echo "le fichier n'existe pas";
+    }
 ?>
-
-
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <!-- Responsive design -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title> Client </title>
-
-        <!-- Bootstrap CDN link -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    
-        <!-- Fichier CSS -->
-        <link rel="stylesheet" href="css/style.css">
-
-        <!-- JQuery Google CDN: -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-
-
-    <body>
-        <!-- PAGE HEAD -->        
-        <?php
-            if (file_exists("header_client.php"))
-            {
-                include("header_client.php");
-            }
-            else
-            {
-                echo "le fichier n'existe pas";
-            }
-        ?>
 
 
         <!-- PAGE CONTENT -->

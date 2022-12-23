@@ -116,7 +116,7 @@
         header("refresh:2; url=inscription.php");
         exit;
     }  
-    else if (!preg_match("#^[A-Za-z0-9 ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+$#", $user_ville))
+    else if (!preg_match("#^[A-Za-z ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+$#", $user_ville))
     {
         echo'<div class="container-fluid alert alert-danger mt-5" role="alert">
                 <center> 
@@ -177,34 +177,31 @@
     require ("connection_bdd.php");
 
     // Ensuite on construit la requête SELECT pour aller chercher la colonne user_email qui se trouvent dans la table "users" :     
-    $requete = "SELECT user_email FROM users" ;
+    $requete = "SELECT user_email FROM users WHERE user_email=:user_email" ;
     
-    // Grace à méthode query() on exécute notre requête et on ramene la colonne user_email et on la mets dans l'objet $result :     
-    $result = $db->query($requete)  or  die(print_r($db->errorInfo()));  // Pour repérer l'erreur SQL en PHP on utilise le code die(print_r($db->errorInfo())) 
+    // Construction de la requête SELECT avec prepare() pour éviter injections SQL     
+    $result = $db->prepare($requete)   or  die(print_r($db->errorInfo()));  // Pour repérer l'erreur SQL en PHP on utilise le code die(print_r($db->errorInfo())) 
 
-    // Grace à la méthode "rowCount()" nous pouvons connaitre le nombre de lignes retournées par la requête
-    $nbLigne = $result->rowCount(); 
-    
-    if ($nbLigne >= 1)
+    // Association des valeurs aux marqueurs via méthode "bindValue()"    
+    $result->bindValue(':user_email', $user_email, PDO::PARAM_STR);
+
+    // Exécution de la requête
+    $result->execute();
+
+    $row = $result->fetch(PDO::FETCH_OBJ);
+                             
+    if ($row->user_email == $user_email)
     {
-        while ($row = $result->fetch(PDO::FETCH_OBJ))   
-        {   
-            /* Grace à la méthode fetch() on choisit 1er ligne de la colonne user_email et on la mets dans l'objet $row. 
-            Puis avec la boucle "while" on choisit 2eme, 3eme, etc.. lignes de la colonne user_email et on la mets dans l'objet $row   */                               
-            if ($row->user_email == $user_email)
-            {
-                echo'<div class="container-fluid alert alert-warning mt-5" role="alert">
-                        <center> 
-                            <h4> Cette adresse mail déjà existe. <br> Veuillez choisir une autre ! </h4> 
-                        </center>
-                    </div>'; 
-                header("refresh:2; url=inscription.php");
-                exit;
-            }   
-        }
-    }        
+        echo'<div class="container-fluid alert alert-warning mt-5" role="alert">
+                <center> 
+                    <h4> Cette adresse mail déjà existe. <br> Veuillez choisir une autre ! </h4> 
+                </center>
+            </div>'; 
+        header("refresh:2; url=inscription.php");
+        exit;
+    }   
+       
     
-
     /*  Avant d'insérer en base de données on convertit tout les caractères en minuscules pour certaines variables. 
     Comme la fonction strtolower() ne convertit pas les lettres accentuées et les caractères spéciaux en minuscules, ici on utilise la fonction 
     mb_strtolower() qui passe tout les caractères majuscules (lettres normales, lettres accentuées, caractères spéciaux) en minuscules.   

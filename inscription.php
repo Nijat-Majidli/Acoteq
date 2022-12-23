@@ -26,23 +26,23 @@
 
             <form action="script_inscription.php" method="POST" autocomplete="off" class="form_connect">
                 <div class="form-group">
-                    <label for="name"> Nom <sup>*</sup> </label> 
-                    <input id="name" type="text" class="form-control" name="userNom" required>
+                    <sup>*</sup> <label for="name"> Nom </label> 
+                    <input id="name" type="text" class="form-control" name="userNom" required onkeyup="verify(this)">
                 </div>
 
                 <div class="form-group">
-                    <label for="surname"> Prénom <sup>*</sup> </label> 
-                    <input id="surname" type="text" class="form-control" name="userPrenom" required>
+                    <sup>*</sup> <label for="surname"> Prénom </label> 
+                    <input id="surname" type="text" class="form-control" name="userPrenom" required onkeyup="verify(this)">
                 </div>
 
                 <div class="form-group">
-                    <label for="RaisonSociale"> Raison sociale <sup>*</sup> </label> 
-                    <input id="RaisonSociale" type="text" class="form-control" name="societe" required>
+                    <sup>*</sup> <label for="RaisonSociale"> Raison Sociale </label> 
+                    <input id="RaisonSociale" type="text" class="form-control" name="societe" required onkeyup="verify(this)">
                 </div>
 
                 <div class="form-group">
-                    <label for="siren"> N° SIREN <sup>*</sup> </label>
-                    <input id="siren" type="text" class="form-control" name="numSiren" required>
+                    <sup>*</sup> <label for="siren"> N° SIREN </label>
+                    <input id="siren" type="text" class="form-control" name="numSiren" required onkeyup="verify(this)">
                 </div>
                 
                 <p>  Vous êtes : </p>
@@ -58,37 +58,37 @@
                 <br><br>
 
                 <div class="form-group">
-                    <label for="ZipCode"> Code postal <sup>*</sup> </label>
-                    <input id="ZipCode" type="number" class="form-control" name="codePostal" maxlength="5" required>   <!-- maxlength="5" Code postal doit contenir au maximum 5 chiffres -->
+                    <sup>*</sup> <label for="ZipCode"> Code Postal </label>
+                    <input id="ZipCode" type="number" class="form-control" name="codePostal" maxlength="5" required onkeyup="verify(this)">   <!-- maxlength="5" Code postal doit contenir au maximum 5 chiffres -->
                 </div>
                 
                 <div class="form-group">
-                    <label for="city"> Ville <sup>*</sup> </label>
-                    <input id="city" type="text" class="form-control" name="ville" required>
+                    <sup>*</sup> <label for="city"> Ville </label>
+                    <input id="city" type="text" class="form-control" name="ville" required onkeyup="verify(this)">
                 </div>
 
                 <div class="form-group">
-                    <label for="address"> Adresse <sup>*</sup> </label>
-                    <input id="address" type="text" class="form-control" name="adresse" required>
+                    <sup>*</sup> <label for="address"> Adresse </label>
+                    <input id="address" type="text" class="form-control" name="adresse" required onkeyup="verify(this)">
                 </div>
 
                 <div class="form-group">
-                    <label for="state"> Pays <sup>*</sup> </label>
-                    <input id="state" type="text" class="form-control" name="pays" required>
+                    <sup>*</sup> <label for="state"> Pays </label>
+                    <input id="state" type="text" class="form-control" name="pays" required onkeyup="verify(this)">
                 </div>
 
                 <div class="form-group">
-                    <label for="email"> Email <sup>*</sup> </label>
-                    <input id="email" type="email" class="form-control" name="mail" required>
+                    <sup>*</sup> <label for="email"> Email </label>
+                    <input id="email" type="email" class="form-control" name="mail" required onkeyup="verify(this)">
                 </div>
 
                 <div class="form-group">
-                    <label for="code"> Mot de passe <sup>*</sup> </label>
+                    <sup>*</sup> <label for="code"> Mot de passe </label>
                     <input id="code" type="password" class="form-control" name="mdp" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="confirmer"> Confirmer le mot de passe <sup>*</sup> </label>
+                    <sup>*</sup> <label for="confirmer"> Confirmer le mot de passe </label>
                     <input id="confirmer" type="password" class="form-control" name="mdp2" required>
                 </div>
                 <br>
@@ -115,8 +115,70 @@
             }
         ?>
 
-        <!-- Codes Javascript pour autocompletion des adresses avec la Base Adresse Nationale dans le formulaire d'inscription -->
+
+        <!-- Codes Javascript/jQuery  -->
         <script>
+            // La fonction verify() sert à vérifier les données saisies par utilisateurs dans le formulaire d'inscription
+            function verify(par)
+            {
+                // On récupére la valeur de l'input:
+                let data = $(par).val(); 
+
+                // On récupére le contenu de la balise label:
+                let elementLabel = $(par).prev().text().trim();
+
+                // On crée un message d'erreur:
+                let errorMessage = '<small style="color:red";>'+elementLabel+' n\'est pas valide !</small>';
+
+                switch (elementLabel)
+                {
+                    case "Nom":
+                        filtre = new RegExp("^[A-Za-z ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+$");  // aprés A-Za-z on a ajouté un espace pour autoriser la saisi de l'espace blanc entre les mots
+                        break;
+                    case "Prénom":
+                        filtre = new RegExp("^[A-Za-z ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+$");  
+                        break;
+                    case "Raison Sociale":
+                        filtre = new RegExp("^[A-Za-z0-9 ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ_&!§£@*',.$;-]+$");  
+                        break;
+                    case "N° SIREN":
+                        filtre = new RegExp("^[0-9]{9}$");  
+                        break;
+                    case "Code Postal":
+                        filtre = new RegExp("^[0-9]{5}$");  
+                        break;
+                    case "Ville":
+                        filtre = new RegExp("^[A-Za-z ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+$");  
+                        break;
+                    case "Adresse":
+                        filtre = new RegExp("^[A-Za-z0-9 ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ_&!§£@*',.$;-]+$");  
+                        break;
+                    case "Pays":
+                        filtre = new RegExp("^[A-Za-z ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+$");  
+                        break;
+                    case "Email":
+                        filtre = new RegExp("^[a-z0-9._ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$");  
+                        break;  
+                    default:
+                        filtre = new RegExp("^[A-Za-z0-9 ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ_&!§£@*',.$;-]+$");  
+                        break;   
+                };
+                
+                // Vérification la validité de format de tout les données saisi par utilisateur en utilisant la fonction test() de l'objet RegExp (filtre) qui renvoie True or False:      
+                let resultat = filtre.test(data);
+
+                if (resultat==true || data.length==0)  // Si le champ input contient les valeurs lettres ou il est vide
+                {
+                    $(par).next().remove(); 
+                }
+                else if (resultat==false)  // Si le champ input contient les valueurs autres que lettres
+                {
+                    $(par).next().remove(); 
+                    $(par).after(errorMessage); 
+                }  
+            };
+           
+            // Autocompletion des adresses avec la Base Adresse Nationale dans le formulaire d'inscription 
             $("#ZipCode").autocomplete({
                 source: function (request, response) {
                     $.ajax({
@@ -186,7 +248,6 @@
                 }
             });
         </script>
-
 
 
         <!-- Bootstrap Jquery, Popper -->

@@ -20,7 +20,16 @@
   </head>
  
   <body style="background-color: #e3f2fd;">
-    <main>
+    <!-- Si utilisateur a désactivé Javascript sur son navigateur on utilise la balise <noscript>
+    pour lui afficher le message d'erreur et pour cacher le contenu de notre page  -->
+    <noscript>
+       <h3>Veuillez activer Javascript sur votre navigateur pour afficher cette page correctement</h3> 
+      <style>
+        main {display:none;}
+      </style>
+    </noscript>
+
+    <main>    
       <!-- PAGE HEAD -->
       <div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10">      
         <header id="nav">   

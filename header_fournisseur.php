@@ -17,6 +17,9 @@
 
         <!-- JQuery Google CDN: -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body style="background-color: #e3f2fd;">
@@ -32,21 +35,21 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active ml-5">
-                                <a class="nav-link" href="fournisseur.php"> Accueil <span class="sr-only">(current)</span> </a>
+                                <a class="nav-link" href="fournisseur.php"> <i class="fa fa-home" aria-hidden="true"></i> Accueil <span class="sr-only">(current)</span> </a>
                             </li>
                             
-                            <li class="nav-item active dropdown ml-3">
+                            <li class="nav-item active dropdown ml-4">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Mes réponses
+                                    <i class="fa fa-th-list" aria-hidden="true"></i> Mes réponses
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="reponsePublished.php"> Réponsées publiées </a>
                                 </div>
                             </li>
 
-                            <li class="nav-item active dropdown ml-3">
+                            <li class="nav-item active dropdown ml-4">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Profil
+                                    <i class="fa fa-user" aria-hidden="true"></i> <?php echo $_SESSION['fullName'];?>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="infoPerso.php"> Infos personelles </a>

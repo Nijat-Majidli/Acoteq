@@ -39,7 +39,7 @@
         <!-- PAGE CONTENT -->
         <div class="container-fluid col-7">
             <br>
-            <center> <h3> Infos personnelles </h3> </center> 
+            <center> <h3> <i class="fa fa-user-circle" aria-hidden="true"></i> Infos personnelles </h3> </center> 
             <br>
 <?php 
             // Connéxion à la base de données 

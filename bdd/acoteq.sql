@@ -64,7 +64,9 @@ INSERT INTO `equipe` (`equipe_id`, `equipe_nom`, `equipe_proprietaire`, `equipe_
 (3, 'Team_smith_2', 'Adam SMITH, smith@iqaten.com', 'adam smith,  paul williams,  marc taylor', ' smith@iqaten.com,  williams@iqaten.com,  taylor@iqaten.com', '2022-12-19 17:53:39', '2022-12-19 18:05:21', 2, 'smith@iqaten.com'),
 (4, 'Team_smith_3', 'Adam SMITH, smith@iqaten.com', 'adam smith,  jeanne dubois,  marc taylor', ' smith@iqaten.com,  jeanne_2000@iqaten.com,  taylor@iqaten.com', '2022-12-19 18:18:54', '2022-12-19 18:20:25', 2, 'smith@iqaten.com'),
 (6, 'Team_richard', 'Richard HALL, hall-richard85@free.fr', 'richard hall,  thomas miller,  agnès barbier', ' hall-richard85@free.fr,  sthomas@yahoo.com,  barbier@gmail.com', '2022-12-20 12:14:00', NULL, 9, 'hall-richard85@free.fr'),
-(7, 'Team_isabelle_1', 'Isabelle BOYER, i_boyer@iqaten.com', 'isabelle boyer,  jeanne dubois,  bernard durand,  adam smith', ' i_boyer@iqaten.com,  jeanne_2000@iqaten.com,  b_durand@iqaten.com,  smith@iqaten.com', '2022-12-20 12:46:52', NULL, 1, 'i_boyer@iqaten.com');
+(7, 'Team_isabelle_1', 'Isabelle BOYER, i_boyer@iqaten.com', 'isabelle boyer,  jeanne dubois,  bernard durand,  adam smith', ' i_boyer@iqaten.com,  jeanne_2000@iqaten.com,  b_durand@iqaten.com,  smith@iqaten.com', '2022-12-20 12:46:52', NULL, 1, 'i_boyer@iqaten.com'),
+(8, 'Team smith 4', 'Adam SMITH, smith@iqaten.com', 'adam smith,  isabelle boyer,  paul williams', ' smith@iqaten.com,  i_boyer@iqaten.com,  williams@iqaten.com', '2022-12-20 14:15:46', '2022-12-20 14:16:24', 2, 'smith@iqaten.com'),
+(9, 'Team_isabelle_2', 'Isabelle BOYER, i_boyer@iqaten.com', 'isabelle boyer,  george muller,  david becker', ' i_boyer@iqaten.com,  muller@iqaten.com,  becker@iqaten.com', '2022-12-20 14:36:50', NULL, 1, 'i_boyer@iqaten.com');
 
 
 CREATE TABLE Demande(
@@ -118,7 +120,8 @@ CREATE TABLE Reponse(
 
 INSERT INTO `reponse` (`reponse_id`, `reponse_proprietaire`, `reponse_societe`, `reponse_titre`, `reponse_description`, `reponse_budget`, `reponse_publication`, `reponse_notification`, `reponse_modification`, `user_id`, `user_email`, `demande_id`) VALUES
 (1, 'BROWN Michael', 'Thermo_2022', 'Réponse brown pour la demande_1 de M Smith', 'Hello M. Smith.\r\nJe suis interresé par votre demande numéro 1. \r\n                             \r\n                             \r\n                            ', 2255, '2022-12-19 22:14:14', 'envoyé', '2022-12-19 22:41:47', 7, 'brown@gmail.fr', 1),
-(2, 'MORRIS Robert', 'Iso', 'réponse_morris_demande smith_1', 'Monsieur smith\r\nJe me permet de vous contacter concernant votre demande_1. \r\n                            ', 2150, '2022-12-20 13:04:22', 'envoyé', '2022-12-20 13:05:38', 8, 'morris_robert77@hotmail.info', 1);
+(2, 'MORRIS Robert', 'Iso', 'réponse_morris_demande smith_1', 'Monsieur smith\r\nJe me permet de vous contacter concernant votre demande_1. \r\n                            ', 2150, '2022-12-20 13:04:22', 'envoyé', '2022-12-20 13:05:38', 8, 'morris_robert77@hotmail.info', 1),
+(3, 'BROWN Michael', 'Thermo_2022', 'réponse demande_isabelle', 'bonjour', 7000, '2022-12-20 16:21:07', 'envoyé', NULL, 7, 'brown@gmail.fr', 6);
 
 
 CREATE TABLE Commentaire(

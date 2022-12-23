@@ -35,12 +35,12 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active ml-5">
-                                <a class="nav-link" href="client.php"> Accueil <span class="sr-only">(current)</span> </a>
+                                <a class="nav-link" href="client.php"> <i class="fa fa-home" aria-hidden="true"></i> Accueil <span class="sr-only">(current)</span> </a>
                             </li>
 
-                            <li class="nav-item dropdown active ml-3">
+                            <li class="nav-item dropdown active ml-4">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Équipes 
+                                    <i class="fa fa-users" aria-hidden="true"></i> Équipes 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="equipeNew.php"> Nouvelle équipe </a>
@@ -49,9 +49,9 @@
                                 </div>
                             </li>
                             
-                            <li class="nav-item dropdown active ml-3">
+                            <li class="nav-item dropdown active ml-4">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Demandes
+                                    <i class="fa fa-file-text" aria-hidden="true"></i> Demandes
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="demandeNew.php"> Nouvelle demande </a>
@@ -59,9 +59,9 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item dropdown active ml-3">
+                            <li class="nav-item dropdown active ml-4">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Profil
+                                    <i class="fa fa-user" aria-hidden="true"></i> <?php echo $_SESSION['fullName'];?> 
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="infoPerso.php"> Infos personelles </a>

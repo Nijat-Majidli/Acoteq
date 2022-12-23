@@ -35,7 +35,7 @@
         Pour cela, on va d'abord se connecter à la base de données:     */
         require ("connection_bdd.php");
 
-        // Construction de la requête SELECT
+        // Construction de la requête SELECT avec prepare() pour éviter injections SQL
         $requete = $db->prepare('SELECT equipe_nom FROM equipe WHERE user_email=:user_email');  
 
         // Association des valeurs aux marqueurs via méthode "bindValue()"    

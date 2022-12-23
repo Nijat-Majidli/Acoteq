@@ -6,6 +6,7 @@
                         <a href="#"> <img src="../Acoteq/image/facebook.png" alt="facebook" title="facebook" style="width:6vh;"> </a>
                         <a href="#"> <img src="../Acoteq/image/instagram.png" alt="instagram" title="instagram" style="width:6vh;"> </a>
                         <a href="#"> <img src="../Acoteq/image/youtube.png" alt="youtube" title="youtube" style="width:6vh;"> </a>
+                        <p style="margin-top:10px;"> <a href="#" style="color: white; margin-right:5px"> Politique de confidentialité</a> | <a href="#" style="color: white;">Contact</a> </p>
                     </div>
                 </footer>
             </div>
