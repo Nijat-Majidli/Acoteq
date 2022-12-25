@@ -61,7 +61,6 @@
 
     if ($row==false)
     {
-
         echo '<script> window.alert("Cette utilisateur n\'existe pas!"); </script>';
 
         header("refresh:0; url=connexion.php");
@@ -111,18 +110,28 @@
         $_SESSION['mdp'] = $user_mdp;
 
         // On vérifie si l'utilisateur a coché l'option "Ses souvenir de moi" dans la page connexion:
-        if(isset($_POST['cookie'])=="rememberMe")
+        if(isset($_POST['cookie']) && $_POST['cookie']=="rememberMe")
         {
-            $remember = $_POST['cookie'];
+            // Puis on crée la variable SESSION cookie qui contient la valeur "rememberMe":
+            $_SESSION['cookie'] = $_POST['cookie'];
+
+            /* Afin d'écrire un cookie, on utilise la fonction setcookie(). Un cookie est souvent utilisé pour identifier un utilisateur. 
+            Un cookie est un petit fichier que le serveur intègre sur l'ordinateur de l'utilisateur.
+            Il est impératif d'utiliser la fonction setcookie() avant la balise <html>. On lui donne en général trois paramètres, dans l'ordre suivant :
+            1. Le nom du cookie (exemple: 'login');
+            2. La valeur du cookie (exemple: 'dupont@gmail.com');
+            3. La date d'expiration du cookie, sous forme de timestamp (exemple: 1090521508 ). 
+            Le dernier paramètre "true" permet d'activer le mode  << httpOnly >>  sur le cookie et permet de réduire drastiquement les risques de faille XSS sur votre site.  */
+            if(isset($_SESSION['cookie']))
+            {
+                // Ici on créé 2 cookies sur l'ordinateur de l'utilisateur: login et password
+                setcookie('login', $_SESSION['email'], time() + 365*24*3600, null, null, false, true);
+                setcookie('password', $_SESSION['mdp'], time() + 365*24*3600, null, null, false, true);
+            }
         }
 
-        // On crée la variable SESSION cookie:
-        if(isset($remember))
-        {
-            $_SESSION['cookie'] = $remember;
-        }
         
-        /* Ensuite on va créer les autres variables de SESSION:  $_SESSION['nom'],  $_SESSION['prenom'],  $_SESSION['fullName'],  $_SESSION['user_siren'] et  $_SESSION['role'].
+        /* Ensuite on va créer les autres variables de SESSION: $_SESSION['nom'], $_SESSION['prenom'], $_SESSION['fullName'], $_SESSION['user_siren'] et $_SESSION['role'].
         Pour cela d'abord on envoie la requête vers la bdd:   */
         $requete = $db->prepare('SELECT * FROM users WHERE user_email=:user_email');
         

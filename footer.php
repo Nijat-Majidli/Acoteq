@@ -1,15 +1,17 @@
             <!-- PAGE FOOT -->
-            <div class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10" style="margin-top:100px;">      
-                <footer style="background-color: #087cfc; padding:10px 40px">   
-                    <div style="text-align:center; color:white">
-                        <h4 style="margin-top:10px;">Suivez-nous sur </h4> 
-                        <a href="#"> <img src="../Acoteq/image/facebook.png" alt="facebook" title="facebook" style="width:6vh;"> </a>
-                        <a href="#"> <img src="../Acoteq/image/instagram.png" alt="instagram" title="instagram" style="width:6vh;"> </a>
-                        <a href="#"> <img src="../Acoteq/image/youtube.png" alt="youtube" title="youtube" style="width:6vh;"> </a>
-                        <p style="margin-top:10px;"> <a href="#" style="color: white; margin-right:5px"> Politique de confidentialité</a> | <a href="#" style="color: white;">Contact</a> </p>
+            <footer>
+                <div class="container-fluid">      
+                    <div class="row justify-content-center">   
+                        <div class="col-xl-10 text-center text-light bg-success rounded py-4 mt-4">  
+                            <h4> Suivez-nous sur </h4> 
+                            <a href="#"> <img src="../Acoteq/image/facebook.png" alt="facebook" title="facebook" style="width:6vh;"> </a>
+                            <a href="#"> <img src="../Acoteq/image/instagram.png" alt="instagram" title="instagram" style="width:6vh;"> </a>
+                            <a href="#"> <img src="../Acoteq/image/youtube.png" alt="youtube" title="youtube" style="width:6vh;"> </a>
+                            <p class="mt-3"> <a href="#" class="text-light mr-2">Politique de confidentialité</a> | <a href="#" class="text-light ml-2">Contact</a> </p>
+                        </div>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
             <!-- PAGE FOOT END -->
         </main>
 

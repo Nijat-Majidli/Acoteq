@@ -9,34 +9,33 @@
   }
 ?>
 
-<!-- PAGE CONTENT -->
-<div class="container-fluid mt-5" style="padding-bottom:30px;" >
-  <div class="row justify-content-center no-gutters">
-    <!-- LOGO -->
-    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">   
-        <section class="maison">
-          <img src="../Acoteq/image/logo1.png" alt="logo" title="logo" style="width:40vh;"> 
-        </section>
-    </div>
+    <!-- PAGE CONTENT -->
+    <div class="container-fluid my-5 py-5">
+      <div class="row justify-content-center">
+        <div class="col-xl-10">
+          <div class="row justify-content-center align-items-center">
+            <!-- Logo -->
+            <div class="col-lg-5 text-center">   
+              <img src="../Acoteq/image/logo1.png" alt="logo" title="logo" class="logo"> 
+            </div>
 
-    <!-- Aside  -->
-    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7" style="margin-top:90px"> 
-        <h3>Notre société</h3>
-      <aside class="aside" style="border:2px solid grey; border-radius:10px; width:70%; padding:30px; margin-top:20px; margin-bottom:50px;">
-        <div style="font-size: 1.4rem;">
-            Acoteq est une société d'études pluridisciplinaire en performance de construction et qui a comme objectif 
-            pour ses clients d'inscrire la qualité et l'optimisation dans une démarche pérenne de développement durable. 
-            Elle est spécialisée dans le secteur d'activités d'architecture et d'ingénierie, études techniques, activités 
-            de contrôle et analyses techniques.
-            La société accompagne la stratégie nationale en matière d’objectifs de développement durable et de la performance 
-            énergétique des bâtiments. L’entreprise intervient sur tous les services et métiers liés aux bâtiments.
+            <!-- Notre société  -->
+            <div class="col-lg-7 text-center"> 
+              <h4 class="text-primary my-4">Notre société</h4>   
+              <aside class="text-justify border border-warning rounded p-4" style="font-size: x-large;">
+                Acoteq est une société d'études pluridisciplinaire en performance de construction et qui a comme objectif 
+                pour ses clients d'inscrire la qualité et l'optimisation dans une démarche pérenne de développement durable. 
+                Elle est spécialisée dans le secteur d'activités d'architecture et d'ingénierie, études techniques, activités 
+                de contrôle et analyses techniques.
+                La société accompagne la stratégie nationale en matière d’objectifs de développement durable et de la performance 
+                énergétique des bâtiments. L’entreprise intervient sur tous les services et métiers liés aux bâtiments.
+              </aside>
+            </div>
+          </div>
         </div>
-      </aside>
-    </div>
-    <div style="clear: left;"> </div>  
-  </div>
-</div> 
-<!-- PAGE CONTENT END -->   
+      </div>
+    </div> 
+    <!-- PAGE CONTENT END -->   
 
 
 <?php

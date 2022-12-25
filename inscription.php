@@ -10,7 +10,7 @@
 ?>
 
         <!-- PAGE CONTENT -->
-        <div class="container-fluid col-12 col-sm-12 col-md-11 col-lg-7 col-xl-7 mt-5 mb-5">
+        <div class="container-fluid col-sm-10 col-lg-8 mt-5 mb-5">
             <!-- LOGO -->
             <div>   
                 <center>
@@ -19,11 +19,9 @@
                     </section>
                 </center>  
             </div>
-
-            <div class="slogan">
-                <h4> Veuillez saisir vos coordonnées : </h4>
-            </div>
-
+        
+            <h4 class="text-primary my-5"> Veuillez saisir vos coordonnées : </h4>
+           
             <form action="script_inscription.php" method="POST" autocomplete="off" class="form_connect">
                 <div class="form-group">
                     <sup>*</sup> <label for="name"> Nom </label> 
@@ -45,7 +43,7 @@
                     <input id="siren" type="text" class="form-control" name="numSiren" required onkeyup="verify(this)">
                 </div>
                 
-                <p>  Vous êtes : </p>
+                <p> Vous êtes : </p>
                 <div class="form-check form-check-inline ml-3">  
                     <input class="form-check-input" id="customer" type="radio" name="userRole" value="client" checked>
                     <label class="form-check-label" for="customer"> Client </label>
@@ -55,9 +53,7 @@
                     <label class="form-check-label" for="supplier"> Fournisseur </label>
                 </div>
 
-                <br><br>
-
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <sup>*</sup> <label for="ZipCode"> Code Postal </label>
                     <input id="ZipCode" type="number" class="form-control" name="codePostal" maxlength="5" required onkeyup="verify(this)">   <!-- maxlength="5" Code postal doit contenir au maximum 5 chiffres -->
                 </div>
@@ -95,7 +91,7 @@
                 <!-- Boutons <Valider> et <Annuler> -->
                 <div>
                     <center>
-                        <button type="submit" class="btn btn-success mr-2"> Valider </button>
+                        <button type="submit" class="btn btn-success mr-3"> Valider </button>
                         <a href="connexion.php"> <input type="button" class="btn btn-danger" value="Annuler"> </a>
                     </center>
                 </div>
@@ -157,7 +153,7 @@
                         filtre = new RegExp("^[A-Za-z ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+$");  
                         break;
                     case "Email":
-                        filtre = new RegExp("^[a-z0-9._ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$");  
+                        filtre = new RegExp("^[a-z0-9._ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+@[a-z]{2,}\.[a-z]{2,4}$");  
                         break;  
                     default:
                         filtre = new RegExp("^[A-Za-z0-9 ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ_&!§£@*',.$;-]+$");  

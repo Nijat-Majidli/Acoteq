@@ -1,11 +1,13 @@
 <?php
-  // La superglobale $_COOKIE représente le contenu de tous les cookies stockés (sous forme d'array) par votre site sur l'ordinateur du visiteur. 
+  /*  Si lors de la première connexion l'utilisateur a coché l'option "Se souvenir de moi" les 2 cookies (login et password) ont été déjà créés par le fichier 
+  "script_connexion.php". La superglobale $_COOKIE représente le contenu de tous les cookies stockés (sous forme d'array) par votre site sur l'ordinateur du visiteur:   */
   if(isset($_COOKIE['login']) && isset($_COOKIE['password']))
   {
     $login = $_COOKIE['login'];
     $password = $_COOKIE['password'];
   }
-  else {
+  else 
+  {
     $login = '';
     $password = '';
   }
@@ -22,34 +24,28 @@
 ?>
 
   <!-- PAGE CONTENT -->
-  <div class="container-fluid mt-5" style="padding-bottom:60px;">
-    <div class="row justify-content-center no-gutters">
-      <!-- LOGO -->
-      <div class="col-12 col-sm-12 col-md-7 col-lg-6 col-xl-5">   
-        <center>
-          <section class="maison">
-            <img src="../Acoteq/image/logo1.png" alt="logo" title="logo" class="col-12" style="width:50vh;">
-          </section>
-        </center>  
-      </div>
-
-      <!-- Aside  -->
-      <div class="col-12 col-sm-12 col-md-5 col-lg-6 col-xl-7" style="margin-top:60px;"> 
-        <aside>
-          <div class="slogan">
-            <h4> Connecter vous pour accéder à tous nos services </h4> 
+  <div class="container-fluid my-5 py-5">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="row justify-content-center align-items-center">
+          <!-- Logo -->
+          <div class="col-lg-5 text-center">   
+              <img src="../Acoteq/image/logo1.png" alt="logo" title="logo" class="logo"> 
           </div>
-          
-          <form action="script_connexion.php" method="POST" autocomplete="off" class="form_connect">
+
+          <!-- Login form  -->
+          <div class="col-lg-7"> 
+            <h4 class="text-primary my-5"> Connecter vous pour accéder à tous nos services </h4>   
+            <form action="script_connexion.php" method="POST" autocomplete="off" class="form_connect">
               <div class="form-group">
                 <label for="mail"> E-mail <sup>*</sup> </label>
-                <input id="mail" type="text" class="form-control col-9 col-xl-8" name="email" value='<?php echo $login;?>' required>
+                <input id="mail" type="text" class="form-control col-9" name="email" value="<?php echo $login;?>" required>
               </div>
               
               <div class="form-group clearfix">
-                <label for="code" style="display: block;"> Mot de passe <sup>*</sup> </label> 
-                <input id="code" type="password" class="form-control col-9 col-xl-8 float-left" name="mdp" value='<?php echo $password;?>' required> 
-                <img src="image/eye_closed.png" alt="eyePicture" id="eyeIcon">  
+                <label for="code" class="d-block"> Mot de passe <sup>*</sup> </label> 
+                <input id="code" type="password" class="form-control float-left col-9" name="mdp" value="<?php echo $password;?>" required> 
+                <img src="image/eye_closed.png" alt="eyePicture" id="eyeIcon"> 
               </div>         
 
               <div class="form-group form-check">
@@ -61,10 +57,11 @@
               <br><br>
 
               <div class="text-center">
-                <button type="submit" class="btn btn-primary"> Connexion </button>
+                <button type="submit" class="btn btn-success"> Connexion </button>
               </div>
-          </form>
-        </aside>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

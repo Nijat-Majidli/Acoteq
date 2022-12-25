@@ -136,7 +136,7 @@
         header("refresh:2; url=inscription.php");
         exit;
     }
-    else if (!preg_match("#^[a-z0-9._ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $user_email))
+    else if (!preg_match("#^[a-z0-9._ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ-]+@[a-z]{2,}\.[a-z]{2,4}$#", $user_email))
     {
         echo'<div class="container-fluid alert alert-danger mt-5" role="alert">
                 <center> 
