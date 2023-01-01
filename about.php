@@ -16,7 +16,7 @@
           <div class="row justify-content-center align-items-center">
             <!-- Logo -->
             <div class="col-lg-5 text-center">   
-              <img src="../Acoteq/image/logo1.png" alt="logo" title="logo" class="logo"> 
+              <img src="image/logo1.png" alt="logo" title="logo" class="logo"> 
             </div>
 
             <!-- Notre société  -->

@@ -1,8 +1,6 @@
-DROP DATABASE IF EXISTS acoteq;
+CREATE DATABASE IF NOT EXISTS u988716521_acoteq;
 
-CREATE DATABASE acoteq;
-
-USE acoteq;
+USE u988716521_acoteq;
 
 CREATE TABLE Users(
    user_id INT NOT NULL AUTO_INCREMENT,   
@@ -25,7 +23,7 @@ CREATE TABLE Users(
    PRIMARY KEY(user_id, user_email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `users` (`user_id`, `user_nom`, `user_prenom`, `user_societe`, `user_siren`, `user_role`, `user_adresse`, `user_code_postal`, `user_ville`, `user_pays`, `user_email`, `user_mdp`, `user_inscription`, `user_connexion`, `login_fail`, `user_blocked`, `unblock_time`) VALUES
+INSERT INTO `Users` (`user_id`, `user_nom`, `user_prenom`, `user_societe`, `user_siren`, `user_role`, `user_adresse`, `user_code_postal`, `user_ville`, `user_pays`, `user_email`, `user_mdp`, `user_inscription`, `user_connexion`, `login_fail`, `user_blocked`, `unblock_time`) VALUES
 (1, 'BOYER', 'Isabelle', 'Iqaten', 123456789, 'client', '14 rue de suresnes', 92000, 'Nanterre', 'France', 'i_boyer@iqaten.com', '$2y$10$Ro/a0Iq.oc7pBuboaDodx.S15PBF6XsvhOq6owLIOOAjm4DGzssUq', '2022-11-29 09:53:44', '2022-10-27 16:33:10', 0, NULL, NULL),
 (2, 'SMITH', 'Adam', 'Iqaten', 123456789, 'client', '14 rue de suresnes', 92000, 'Nanterre', 'France', 'smith@iqaten.com', '$2y$10$DSdGrUmt7dFE7TnEYv1HWe0iha5PYtpExfrGJHwQSM70yLAD2hnHq', '2022-11-22 16:26:54', '2022-11-29 10:28:53', NULL, NULL, NULL),
 (3, 'MULLER', 'George', 'Iqaten', 123456789, 'client', '14 rue de suresnes', 92000, 'Nanterre', 'France', 'muller@iqaten.com', '$2y$10$Xm9HlvqVLK6Sxb97lfMpruxDlmkSUKPJ4eZTgK9yTe1.WUpn/iEJa', '2022-11-22 16:28:40', '2022-10-10 09:56:57', NULL, NULL, NULL),
@@ -59,7 +57,7 @@ CREATE TABLE Equipe(
    FOREIGN KEY(user_id, user_email) REFERENCES Users(user_id, user_email) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `equipe` (`equipe_id`, `equipe_nom`, `equipe_proprietaire`, `equipe_membres`, `member_mails`, `equipe_creation`, `equipe_modification`, `user_id`, `user_email`) VALUES
+INSERT INTO `Equipe` (`equipe_id`, `equipe_nom`, `equipe_proprietaire`, `equipe_membres`, `member_mails`, `equipe_creation`, `equipe_modification`, `user_id`, `user_email`) VALUES
 (2, 'Team_smith_1', 'Adam SMITH, smith@iqaten.com', 'adam smith,  isabelle boyer,  david becker', ' smith@iqaten.com,  i_boyer@iqaten.com,  becker@iqaten.com', '2022-12-19 17:25:36', NULL, 2, 'smith@iqaten.com'),
 (3, 'Team_smith_2', 'Adam SMITH, smith@iqaten.com', 'adam smith,  paul williams,  marc taylor', ' smith@iqaten.com,  williams@iqaten.com,  taylor@iqaten.com', '2022-12-19 17:53:39', '2022-12-19 18:05:21', 2, 'smith@iqaten.com'),
 (4, 'Team_smith_3', 'Adam SMITH, smith@iqaten.com', 'adam smith,  jeanne dubois,  marc taylor', ' smith@iqaten.com,  jeanne_2000@iqaten.com,  taylor@iqaten.com', '2022-12-19 18:18:54', '2022-12-19 18:20:25', 2, 'smith@iqaten.com'),
@@ -91,7 +89,7 @@ CREATE TABLE Demande(
    FOREIGN KEY(user_id, user_email) REFERENCES Users(user_id, user_email) ON DELETE CASCADE 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `demande` (`demande_id`, `demande_proprietaire`, `demande_societe`, `demande_titre`, `demande_description`, `demande_budget`, `demande_file_name`, `demande_creation`, `demande_modification`, `demande_publication`, `demande_equipe`, `demande_etat`, `demande_notification`, `equipe_id`, `user_id`, `user_email`) VALUES
+INSERT INTO `Demande` (`demande_id`, `demande_proprietaire`, `demande_societe`, `demande_titre`, `demande_description`, `demande_budget`, `demande_file_name`, `demande_creation`, `demande_modification`, `demande_publication`, `demande_equipe`, `demande_etat`, `demande_notification`, `equipe_id`, `user_id`, `user_email`) VALUES
 (1, 'SMITH Adam', 'Iqaten', 'Demande_smith_1', ' c\'est une demande_1 de m.smith.  ', 2500, 'demande_22 Email_structure.pdf', '2022-12-19 21:15:02', '2022-12-19 21:16:20', '2022-12-19 21:16:20', 'Team_smith_2', 'publié', 'envoyé', 2, 2, 'smith@iqaten.com'),
 (2, 'SMITH Adam', 'Iqaten', 'Demande_smith_2', 'c\'est une demande 2.', 1500, 'demande_23 SQL_p2.pdf', '2022-12-19 21:17:49', NULL, '2022-12-19 21:18:04', 'Team_smith_1', 'publié', 'envoyé', 2, 2, 'smith@iqaten.com'),
 (3, 'SMITH Adam', 'Iqaten', 'Demande_smith_3', 'c\'est une demande 3.', 3000, 'demande_23 SQL_p2.pdf', '2022-12-19 21:18:45', NULL, NULL, 'Team_smith_3', 'sauvegardé', 'non envoyé', 4, 2, 'smith@iqaten.com'),
@@ -118,7 +116,7 @@ CREATE TABLE Reponse(
    FOREIGN KEY(demande_id) REFERENCES Demande(demande_id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `reponse` (`reponse_id`, `reponse_proprietaire`, `reponse_societe`, `reponse_titre`, `reponse_description`, `reponse_budget`, `reponse_publication`, `reponse_notification`, `reponse_modification`, `user_id`, `user_email`, `demande_id`) VALUES
+INSERT INTO `Reponse` (`reponse_id`, `reponse_proprietaire`, `reponse_societe`, `reponse_titre`, `reponse_description`, `reponse_budget`, `reponse_publication`, `reponse_notification`, `reponse_modification`, `user_id`, `user_email`, `demande_id`) VALUES
 (1, 'BROWN Michael', 'Thermo_2022', 'Réponse brown pour la demande_1 de M Smith', 'Hello M. Smith.\r\nJe suis interresé par votre demande numéro 1. \r\n                             \r\n                             \r\n                            ', 2255, '2022-12-19 22:14:14', 'envoyé', '2022-12-19 22:41:47', 7, 'brown@gmail.fr', 1),
 (2, 'MORRIS Robert', 'Iso', 'réponse_morris_demande smith_1', 'Monsieur smith\r\nJe me permet de vous contacter concernant votre demande_1. \r\n                            ', 2150, '2022-12-20 13:04:22', 'envoyé', '2022-12-20 13:05:38', 8, 'morris_robert77@hotmail.info', 1),
 (3, 'BROWN Michael', 'Thermo_2022', 'réponse demande_isabelle', 'bonjour', 7000, '2022-12-20 16:21:07', 'envoyé', NULL, 7, 'brown@gmail.fr', 6);
@@ -143,7 +141,7 @@ CREATE TABLE Commentaire(
    FOREIGN KEY(reponse_id) REFERENCES Reponse(reponse_id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `commentaire` (`comment_id`, `comment_proprietaire`, `comment_societe`, `comment_description`, `comment_publication`, `comment_modification`, `comment_visibilite`, `user_id`, `user_email`, `user_id_1`, `user_email_1`, `reponse_id`) VALUES
+INSERT INTO `Commentaire` (`comment_id`, `comment_proprietaire`, `comment_societe`, `comment_description`, `comment_publication`, `comment_modification`, `comment_visibilite`, `user_id`, `user_email`, `user_id_1`, `user_email_1`, `reponse_id`) VALUES
 (2, 'Adam SMITH', 'Iqaten', 'bonjour m brown,\r\nmerci pour cette réponse.     ', '2022-12-19 22:52:10', '2022-12-19 23:16:40', 'visible', 2, 'smith@iqaten.com', 7, 'brown@gmail.fr', 1),
 (3, 'Michael BROWN', 'Thermo_2022', 'j\'espere que vous allez accepter notre proposition.', '2022-12-19 23:18:11', NULL, 'visible', 2, 'smith@iqaten.com', 7, 'brown@gmail.fr', 1),
 (4, 'Isabelle BOYER', 'Iqaten', ' bonjour m brown,\r\non va réfléchir sur votre proposition. ', '2022-12-20 12:24:25', '2022-12-20 12:45:25', 'visible', 1, 'i_boyer@iqaten.com', 7, 'brown@gmail.fr', 1),

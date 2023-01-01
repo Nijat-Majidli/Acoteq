@@ -16,7 +16,7 @@
           <div class="row justify-content-center align-items-center">
             <!-- Logo -->
             <div class="col-lg-5 text-center">   
-                <img src="../Acoteq/image/logo1.png" alt="logo" title="logo" class="logo"> 
+                <img src="image/logo1.png" alt="logo" title="logo" class="logo"> 
             </div>
 
             <!-- Carousel  -->
@@ -26,16 +26,16 @@
               <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active" data-interval="2000">
-                    <img src="../Acoteq/image/slide1.png" class="col-12 d-block w-100" alt="...">
+                    <img src="image/slide1.png" class="col-12 d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item" data-interval="2000">
-                    <img src="../Acoteq/image/slide2.png" class="col-12 d-block w-100" alt="...">
+                    <img src="image/slide2.png" class="col-12 d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="../Acoteq/image/slide3.png" class="col-12 d-block w-100" alt="...">
+                    <img src="image/slide3.png" class="col-12 d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="../Acoteq/image/slide4.png" class="col-12 d-block w-100" alt="...">
+                    <img src="image/slide4.png" class="col-12 d-block w-100" alt="...">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">

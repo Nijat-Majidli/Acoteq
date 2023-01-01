@@ -12,13 +12,15 @@
         exit;
     }
 
-    /* Nous récupérons les informations passées soit dans le fichier "client.php" ou "fournisseur.php" dans la balise <a> et l'attribut "href"  
-    Les informations sont récupéré avec variable superglobale $_GET   */
-    if(isset($_GET['demande_id']) && !empty($_GET['demande_id']))
+    /*  Nous récupérons les informations passées soit dans le fichier "client.php" ou "fournisseur.php" dans la balise <a> et l'attribut "href"  
+        Les informations sont récupéré avec variable superglobale $_GET   
+        Pour vérifier que $_GET['demande_id'] contient bien un nombre entier, on utilise le fonction is_numeric() 
+    */
+    if(isset($_GET['demande_id']) && !empty($_GET['demande_id']) && is_numeric($_GET['demande_id']))
     {
         // La fonction "trim()" efface les espaces blancs au début et à la fin d'une chaîne.
         // La fonction "htmlspecialchars" rend inoffensives les balises HTML que le visiteur peux rentrer et nous aide d'éviter la faille XSS
-        $demande_id = trim(htmlspecialchars((int)$_GET['demande_id']));  // Pour vérifier que $_GET['demande_id'] contient bien un nombre entier, on utilise (int) pour convertir la variable GET en type entier.
+        $demande_id = trim(htmlspecialchars((int)$_GET['demande_id']));  // On utilise (int) pour convertir la variable GET en type entier.
     }
     else
     {
@@ -63,7 +65,7 @@
     // Connéxion à la base de données 
     require "connection_bdd.php";
                         
-    // On construit la requête SELECT : 
+    // On construit la requête préparée SELECT en utilisant la méthode prepare(). Les requêtes préparées sont très utiles contre les injections SQL :  
     $result = $db->prepare("SELECT * FROM demande WHERE demande_id=:demande_id");
     
     // Association des valeurs aux marqueurs via la méthode "bindValue()" :
@@ -72,7 +74,7 @@
     // On exécute la requête :
     $result->execute();
 
-    // Si la requête renvoit un seul et unique résultat, on ne fait pas de boucle, ici c'est le cas: 
+    // Si la requête renvoit un seul et unique résultat, on ne fait pas de boucle while, ici c'est le cas: 
     $row = $result->fetch(PDO::FETCH_OBJ);
 ?>
         <div class="container-fluid p-4 mb-3 mt-3 col-11 col-sm-9 col-lg-8 bg-light text-dark">

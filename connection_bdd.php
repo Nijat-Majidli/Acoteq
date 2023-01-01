@@ -1,23 +1,22 @@
 <?php
 
-    /*  On vérifie si on désire se diriger vers le serveur distant ou bien vers le serveur local. 
-    Dans ce cas, host, login, password et BDD sont différents d'un serveur à l'autre.     */
-
-    if ($_SERVER["SERVER_NAME"]=="")  // Ici on ajoute entre guillements l'adresse du serveur distant hébergeant la base de données
+    // Vérifie si on désire se diriger vers le serveur acoteq.nijatmajidli.eu ou bien vers le serveur local.
+    // Dans ce cas, host,login, password et BDD sont différents d'un serveur à l'autre:
+    if ($_SERVER["SERVER_NAME"] == "acoteq.nijatmajidli.eu")
     {
         // Paramètres de connexion serveur distant
-        $host = "";     // Ajouter adresse du serveur distant hébergeant la base de données
-        $base = "";     // Ajouter le nom de BDD avec laquelle vous voulez travailler 
-        $login= "";     // Ajouter votre login d'accès au serveur distant 
-        $password="";   // Ajouter votre password pour vous identifier auprès du serveur distant
+        $host = "localhost";
+        $login= "u988716521_nmajid";     // Votre login d'accès au serveur de BDD 
+        $password="Mercanli1985@";    // Le Password pour vous identifier auprès du serveur
+        $base = "u988716521_acoteq";    // La BDD avec laquelle vous voulez travailler 
     }
-    else if ($_SERVER["SERVER_NAME"]=="localhost" || $_SERVER["SERVER_NAME"]=="127.0.0.1")  // ici un 'OU' car il se peut que le 'localhost' ne soit pas reconnu !
+    else if ($_SERVER["SERVER_NAME"] == "localhost" || $_SERVER["SERVER_NAME"] == "127.0.0.1")  // Ici un 'OU' car il se peut que le 'localhost' ne soit pas reconnu !
     {
         // Paramètres de connexion serveur local
-        $host = "localhost";    // Le nom de serveur local
-        $base = "acoteq";       // La bdd avec laquelle vous voulez travailler
-        $login= "root";         // Votre login d'accès au serveur de BDD 
-        $password="";           // Le Password pour vous identifier auprès du serveur local
+        $host = "localhost";
+        $login= "root";     // Votre loggin d'accès au serveur de BDD 
+        $password="";    // Le Password pour vous identifier auprès du serveur
+        $base = "acoteq";    // La bdd avec laquelle vous voulez travailler 
     }
 
 
